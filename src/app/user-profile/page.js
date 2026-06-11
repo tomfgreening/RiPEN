@@ -1,3 +1,4 @@
+
 import { auth } from "@clerk/nextjs/server";
 
 export default async function UserProfilePage() {
