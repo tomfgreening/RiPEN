@@ -1,3 +1,6 @@
+import { SignOutButton } from "@clerk/nextjs";
+
+
 export default function DashboardPage () {
     return(
         <>
@@ -7,6 +10,9 @@ export default function DashboardPage () {
         [ add avacado ]
         [ your tracked avacados ]
         [ no avacoads tracked ]
+        <SignOutButton>
+            <button>Sign out.</button>
+        </SignOutButton>
         </>
     );
 }
