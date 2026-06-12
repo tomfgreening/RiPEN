@@ -10,7 +10,7 @@ export default function NewAvocadoPage () {
         const firmness = formValues.get("firmness");
         const storageLocation = formValues.get("storage_location");
 
-        db.query(
+         await db.query(
             'INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)',
             [avocadoName, purchaseDate, firmness, storageLocation]
         );
