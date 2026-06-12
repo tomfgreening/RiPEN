@@ -10,14 +10,18 @@ export default function NewAvocadoPage () {
         const firmness = formValues.get("firmness");
         const storageLocation = formValues.get("storage_location");
 
-         await db.query(
+         try {await db.query(
             'INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)',
             [avocadoName, purchaseDate, firmness, storageLocation]
         );
-        
         revalidatePath("/dashboard");
         redirect("/dashboard");
+        // Maybe redirect to a success page instead? Then have a button to the dashboard on that page. 
+    } catch (error) {
+        console.error(error);
+        // redirect to error-page (when I make one)
     }
+}
 
 
 return (
