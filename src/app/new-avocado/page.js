@@ -14,6 +14,12 @@ export default function NewAvocadoPage () {
             'INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)',
             [avocadoName, purchaseDate, firmness, storageLocation]
         );
+        console.log({
+            avocadoName,
+            purchaseDate,
+            firmness,
+            storageLocation,
+          });
 
         revalidatePath("/dashboard");
         redirect("/dashboard");
