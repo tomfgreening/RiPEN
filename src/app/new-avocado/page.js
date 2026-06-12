@@ -5,7 +5,13 @@ import { redirect } from "next/navigation";
 export default function NewAvocadoPage () {
     async function handleSubmit (formValues) {
         "use server";
+        const avocadoName = formValues.get("avocado_name");
+        const purchaseDate = formValues.get("purchase_date");
+        const firmness = formValues.get("firmness");
+        const storageLocation = formValues.get("storage_location");
     }
+
+
 return (
     <>
     <h1>Add a new avocado </h1>
