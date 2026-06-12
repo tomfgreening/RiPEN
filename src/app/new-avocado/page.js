@@ -9,12 +9,17 @@ export default function NewAvocadoPage () {
         const purchaseDate = formValues.get("purchase_date");
         const firmness = formValues.get("firmness");
         const storageLocation = formValues.get("storage_location");
+
+        db.query(
+            'INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)',
+            [avocadoName, purchaseDate, firmness, storageLocation]
+        );
     }
 
 
 return (
     <>
-    <h1>Add a new avocado </h1>
+    <h1> Add a new avocado </h1>
     <form action={handleSubmit}>
         <label htmlFor="avocado_name"> Name your avocado: </label>
         <input
