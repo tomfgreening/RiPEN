@@ -1,6 +1,6 @@
 import { SignInButton } from "@clerk/nextjs";
 import { SignUpButton } from "@clerk/nextjs";
-
+import "../utils/dbConnection";
 
 export default function Home() {
   return (
