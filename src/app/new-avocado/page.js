@@ -15,6 +15,7 @@ return (
         type="text"
         name="avocado_name"
         id="avocado_name"
+        required
         />
 
         <label htmlFor="purchase_date"> When did you purchase your avocado: </label>
@@ -22,17 +23,24 @@ return (
         type="date"
         name="purchase_date"
         id="purchase_date"
+        required
         />
 
         <label htmlFor="firmness"> How does your avocado feel: </label>
-        <select name="firmness" id="firmness">
+        <select 
+        name="firmness" 
+        id="firmness"
+        required>
             <option value="hard">Hard</option>
             <option value="firm">Firm</option>
             <option value="soft">Soft</option>
         </select>
 
         <label htmlFor="storage_location"> Where are you storing your avocado: </label>
-        <select name="storage_location" id="storage_location">
+        <select 
+        name="storage_location" 
+        id="storage_location"
+        required>
             <option value="countertop">Countertop</option>
             <option value="fridge">Fridge</option>
         </select>
