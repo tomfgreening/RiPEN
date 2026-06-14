@@ -6,11 +6,16 @@ import { auth } from "@clerk/nextjs/server";
 export default function NewAvocadoPage() {
   async function handleSubmit(formValues) {
     "use server";
+
+    const { userId } = await auth();
+    console.log(userId);
+
     const avocadoName = formValues.get("avocado_name");
     const purchaseDate = formValues.get("purchase_date");
     const firmness = formValues.get("firmness");
     const storageLocation = formValues.get("storage_location");
-
+    
+  
     try {
       await db.query(
         "INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)",
@@ -22,8 +27,8 @@ export default function NewAvocadoPage() {
       console.error(error);
       redirect("/error");
     }
-    const { userID } = await auth();
-    console.log(userID);
+
+  
     
     redirect("/success");
   }
