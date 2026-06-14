@@ -19,7 +19,7 @@ export default function NewAvocadoPage() {
       redirect("/success");
     } catch (error) {
       console.error(error);
-      // redirect to error-page (when I make one)
+      redirect("/error");
     }
   }
 
