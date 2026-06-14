@@ -9,3 +9,4 @@ CREATE TABLE avocados (
 );
 
 -- / SQL queries used to generate table.
+
