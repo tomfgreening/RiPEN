@@ -16,8 +16,7 @@ export default function NewAvocadoPage() {
         [avocadoName, purchaseDate, firmness, storageLocation]
       );
       revalidatePath("/dashboard");
-      redirect("/dashboard");
-      // Maybe redirect to a success page instead? Then have a button to the dashboard on that page.
+      redirect("/success");
     } catch (error) {
       console.error(error);
       // redirect to error-page (when I make one)
