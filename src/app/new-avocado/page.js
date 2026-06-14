@@ -17,13 +17,15 @@ export default function NewAvocadoPage() {
         [avocadoName, purchaseDate, firmness, storageLocation]
       );
       revalidatePath("/dashboard");
-      redirect("/success");
+      
     } catch (error) {
       console.error(error);
       redirect("/error");
     }
     const { userID } = await auth();
     console.log(userID);
+    
+    redirect("/success");
   }
 
   return (
