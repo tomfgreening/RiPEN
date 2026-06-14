@@ -1,6 +1,7 @@
 import db from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 export default function NewAvocadoPage() {
   async function handleSubmit(formValues) {
@@ -21,6 +22,8 @@ export default function NewAvocadoPage() {
       console.error(error);
       redirect("/error");
     }
+    const { userID } = await auth();
+    console.log(userID);
   }
 
   return (
