@@ -14,22 +14,18 @@ export default function NewAvocadoPage() {
     const purchaseDate = formValues.get("purchase_date");
     const firmness = formValues.get("firmness");
     const storageLocation = formValues.get("storage_location");
-    
-  
+
     try {
       await db.query(
-        "INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)",
-        [avocadoName, purchaseDate, firmness, storageLocation]
+        "INSERT INTO avocados (user_id, name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4, $5)",
+        [userId, avocadoName, purchaseDate, firmness, storageLocation]
       );
       revalidatePath("/dashboard");
-      
     } catch (error) {
       console.error(error);
       redirect("/error");
     }
 
-  
-    
     redirect("/success");
   }
 
