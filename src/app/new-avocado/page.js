@@ -1,10 +1,15 @@
 import db from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 export default function NewAvocadoPage() {
   async function handleSubmit(formValues) {
     "use server";
+
+    const { userId } = await auth();
+    console.log(userId);
+
     const avocadoName = formValues.get("avocado_name");
     const purchaseDate = formValues.get("purchase_date");
     const firmness = formValues.get("firmness");
@@ -12,15 +17,16 @@ export default function NewAvocadoPage() {
 
     try {
       await db.query(
-        "INSERT INTO avocados (name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4)",
-        [avocadoName, purchaseDate, firmness, storageLocation]
+        "INSERT INTO avocados (user_id, name, purchase_date, firmness, storage_location) VALUES ($1, $2, $3, $4, $5)",
+        [userId, avocadoName, purchaseDate, firmness, storageLocation]
       );
       revalidatePath("/dashboard");
-      redirect("/success");
     } catch (error) {
       console.error(error);
       redirect("/error");
     }
+
+    redirect("/success");
   }
 
   return (
