@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 
 export default async function DashboardPage () {
     const { userId } = await auth();
+    const userAvocados = await db.query('SELECT * FROM avocados WHERE user_id=$1',[userId]);
     const avocados = await db.query('SELECT * FROM avocados');
     const wrangledAvocados = avocados.rows;
     console.log(wrangledAvocados);
