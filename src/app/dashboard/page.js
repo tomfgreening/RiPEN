@@ -15,11 +15,11 @@ export default async function DashboardPage() {
   return (
     <>
       <h1>Welcome back, {userId} </h1>
-      <h2>Track previous avocados, or check a new one. </h2>
+      <h2>Track previous avocados, or check a new one.</h2>
       {wrangledUserAvocados.map((renderedAvocado)=> (
         <div key={renderedAvocado.id}> 
         <h1>{renderedAvocado.name}</h1>
-        <h1>{renderedAvocado.purchase_date}</h1>
+        <h1>{renderedAvocado.purchase_date.toLocaleDateString()}</h1>
         <h1>{renderedAvocado.firmness}</h1>
         <h1>{renderedAvocado.storage_location}</h1>
         </div>
