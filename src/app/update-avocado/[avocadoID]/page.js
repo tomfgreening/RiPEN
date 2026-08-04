@@ -14,7 +14,7 @@ export default async function UpdateAvocadoPage({ params }) {
 
   async function handleUpdate(formData) {
     "use server";
-    const avocadoName = formData.get("name");
+    const avocadoName = formData.get("avocado_name");
     const avocadoPurchasedate = formData.get("purchase_date");
     const avocadoFirmness = formData.get("firmness");
     const avocadoStorageplace = formData.get("storage_location");
@@ -24,7 +24,7 @@ export default async function UpdateAvocadoPage({ params }) {
       [avocadoName, avocadoPurchasedate, avocadoFirmness, avocadoStorageplace, slug.avocadoID]
     );
     revalidatePath("/dashboard");
-    redirect("dashboard");
+    redirect("/dashboard");
   }
   console.log(slug);
   console.log(oneAvocado.rows);
