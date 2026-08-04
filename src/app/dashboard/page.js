@@ -1,6 +1,7 @@
 import { SignOutButton } from "@clerk/nextjs";
 import db from "@/utils/dbConnection";
 import { auth } from "@clerk/nextjs/server";
+import Link from "next/link";
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -22,6 +23,9 @@ export default async function DashboardPage() {
         <h1>{renderedAvocado.purchase_date.toLocaleDateString()}</h1>
         <h1>{renderedAvocado.firmness}</h1>
         <h1>{renderedAvocado.storage_location}</h1>
+        <Link href={`/update-avocado/${renderedAvocado.id}`}>
+        edit your avocado.
+        </Link>
         </div>
       ))}
       <SignOutButton>
