@@ -12,7 +12,6 @@ export default async function DashboardPage() {
   const wrangledUserAvocados = userAvocados.rows;
   console.log(wrangledUserAvocados);
   
-
   return (
     <>
       <h1>Welcome back, {userId} </h1>
@@ -24,10 +23,10 @@ export default async function DashboardPage() {
         <h1>{renderedAvocado.firmness}</h1>
         <h1>{renderedAvocado.storage_location}</h1>
         <Link href={`/update-avocado/${renderedAvocado.id}`}>
-        Edit your avocado.
+        Edit this avocado.
         </Link>
         <Link href={`/delete-avocado/${renderedAvocado.id}`}>
-        Delete your avocado.
+        Delete this avocado.
         </Link>
         </div>
       ))}
