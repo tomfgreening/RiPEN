@@ -61,7 +61,7 @@ export default async function UpdateAvocadoPage({ params }) {
           <option value="fridge">Fridge</option>
         </select>
         <button type="submit">
-          edit your avocado
+          Edit your avocado
         </button>
     </form>
     </>
