@@ -24,7 +24,10 @@ export default async function DashboardPage() {
         <h1>{renderedAvocado.firmness}</h1>
         <h1>{renderedAvocado.storage_location}</h1>
         <Link href={`/update-avocado/${renderedAvocado.id}`}>
-        edit your avocado.
+        Edit your avocado.
+        </Link>
+        <Link href={`/delete-avocado/${renderedAvocado.id}`}>
+        Delete your avocado.
         </Link>
         </div>
       ))}
