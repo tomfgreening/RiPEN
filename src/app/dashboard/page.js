@@ -16,6 +16,7 @@ export default async function DashboardPage() {
     <>
       <h1>Welcome back, {userId} </h1>
       <h2>Track previous avocados, or check a new one.</h2>
+      <Link href={'/new-avocado/'}>add a new avocado</Link>
       {wrangledUserAvocados.map((renderedAvocado)=> (
         <div key={renderedAvocado.id}> 
         <h1>{renderedAvocado.name}</h1>

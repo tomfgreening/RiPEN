@@ -2,6 +2,7 @@ import db from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import Link from "next/link";
 
 export default function NewAvocadoPage() {
   async function handleSubmit(formValues) {
@@ -60,6 +61,9 @@ export default function NewAvocadoPage() {
 
         <button type="submit">Submit your avocado!</button>
       </form>
+      <Link href="/dashboard">
+  Back to Dashboard
+</Link>
     </>
   );
 }
