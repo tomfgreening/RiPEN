@@ -1,6 +1,7 @@
 import db from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default async function UpdateAvocadoPage({ params }) {
   const slug = await params;
@@ -64,6 +65,9 @@ export default async function UpdateAvocadoPage({ params }) {
           Edit your avocado
         </button>
     </form>
+    <Link href="/dashboard">
+  Back to Dashboard
+</Link>
     </>
   );
 }
